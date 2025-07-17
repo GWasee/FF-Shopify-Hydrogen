@@ -83,7 +83,7 @@ export default function Homepage() {
             Professional Security Fog Systems
           </p>
           <p className="flashfog-description">
-            Protecting properties for over 25 years with advanced fog technology, 
+            Protecting properties for over 25 years with advanced FOG technology, 
             light barriers, and sound barriers. When security matters, choose FlashFog.
           </p>
           <div className="flashfog-cta-buttons">

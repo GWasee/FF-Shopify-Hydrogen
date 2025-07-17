@@ -1,13 +1,10 @@
-import {Await, Link} from 'react-router';
-import {Suspense, useState} from 'react';
+import React, { useState } from 'react';
+import { Facebook, Twitter, Linkedin } from 'lucide-react';
 
-/**
- * @param {FooterProps}
- */
-export function Footer({footer, header, publicStoreDomain}) {
+const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle newsletter signup
     console.log('Newsletter signup:', email);
@@ -15,50 +12,50 @@ export function Footer({footer, header, publicStoreDomain}) {
   };
 
   return (
-    <footer className="footer">
-      <div className="container py-12">
+    <footer className="bg-black border-t-2 border-yellow-400 mt-16">
+      <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <h3 className="text-cyan-400 font-bold text-lg mb-4">FLASHFOG</h3>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-cyan-400 hover:text-cyan-300 transition-colors">Home</Link></li>
-              <li><Link to="/collections/all" className="text-cyan-400 hover:text-cyan-300 transition-colors">All products</Link></li>
-              <li><Link to="/collections/all" className="text-cyan-400 hover:text-cyan-300 transition-colors">Store</Link></li>
-              <li><Link to="/pages/photo-gallery" className="text-cyan-400 hover:text-cyan-300 transition-colors">Photo gallery</Link></li>
+              <li><a href="/" className="text-cyan-400 hover:text-cyan-300 transition-colors">Home</a></li>
+              <li><a href="/all-products" className="text-cyan-400 hover:text-cyan-300 transition-colors">All products</a></li>
+              <li><a href="/store" className="text-cyan-400 hover:text-cyan-300 transition-colors">Store</a></li>
+              <li><a href="/photo-gallery" className="text-cyan-400 hover:text-cyan-300 transition-colors">Photo gallery</a></li>
             </ul>
             <h4 className="text-cyan-400 font-bold text-lg mt-6 mb-4">Company</h4>
             <ul className="space-y-2">
-              <li><Link to="/pages/about-us" className="text-cyan-400 hover:text-cyan-300 transition-colors">About us / Contact us</Link></li>
-              <li><Link to="/pages/return-policy" className="text-cyan-400 hover:text-cyan-300 transition-colors">Return policy</Link></li>
-              <li><Link to="/pages/privacy-policy" className="text-cyan-400 hover:text-cyan-300 transition-colors">Privacy policy</Link></li>
+              <li><a href="/about-us" className="text-cyan-400 hover:text-cyan-300 transition-colors">About us / Contact us</a></li>
+              <li><a href="/return-policy" className="text-cyan-400 hover:text-cyan-300 transition-colors">Return policy</a></li>
+              <li><a href="/privacy-policy" className="text-cyan-400 hover:text-cyan-300 transition-colors">Privacy policy</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-cyan-400 font-bold text-lg mb-4">Technologies</h3>
             <ul className="space-y-2">
-              <li><Link to="/pages/fog-details" className="text-cyan-400 hover:text-cyan-300 transition-colors">Security fog (details)</Link></li>
-              <li><Link to="/pages/light-barrier" className="text-cyan-400 hover:text-cyan-300 transition-colors">Light barrier</Link></li>
-              <li><Link to="/pages/sound-barrier" className="text-cyan-400 hover:text-cyan-300 transition-colors">Sound Barrier</Link></li>
+              <li><a href="/fog-details" className="text-cyan-400 hover:text-cyan-300 transition-colors">Security fog (details)</a></li>
+              <li><a href="/light-barrier" className="text-cyan-400 hover:text-cyan-300 transition-colors">Light barrier</a></li>
+              <li><a href="/sound-barrier" className="text-cyan-400 hover:text-cyan-300 transition-colors">Sound Barrier</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-cyan-400 font-bold text-lg mb-4">Get yours</h3>
             <ul className="space-y-2">
-              <li><Link to="/collections/all" className="text-cyan-400 hover:text-cyan-300 transition-colors">Store</Link></li>
-              <li><Link to="/pages/photo-gallery" className="text-cyan-400 hover:text-cyan-300 transition-colors">Photo gallery</Link></li>
-              <li><Link to="/collections/all" className="text-cyan-400 hover:text-cyan-300 transition-colors">All products</Link></li>
-              <li><Link to="/pages/model-selection" className="text-cyan-400 hover:text-cyan-300 transition-colors">Model selection</Link></li>
-              <li><Link to="/pages/installation" className="text-cyan-400 hover:text-cyan-300 transition-colors">Installation</Link></li>
-              <li><Link to="/pages/is-my-site-right" className="text-cyan-400 hover:text-cyan-300 transition-colors">Is my site right?</Link></li>
+              <li><a href="/store" className="text-cyan-400 hover:text-cyan-300 transition-colors">Store</a></li>
+              <li><a href="/photo-gallery" className="text-cyan-400 hover:text-cyan-300 transition-colors">Photo gallery</a></li>
+              <li><a href="/all-products" className="text-cyan-400 hover:text-cyan-300 transition-colors">All products</a></li>
+              <li><a href="/model-selection" className="text-cyan-400 hover:text-cyan-300 transition-colors">Model selection</a></li>
+              <li><a href="/installation" className="text-cyan-400 hover:text-cyan-300 transition-colors">Installation</a></li>
+              <li><a href="/is-my-site-right" className="text-cyan-400 hover:text-cyan-300 transition-colors">Is my site right?</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-cyan-400 font-bold text-lg mb-4">Dealers</h3>
             <ul className="space-y-2">
-              <li><Link to="/pages/installer-program" className="text-cyan-400 hover:text-cyan-300 transition-colors">Installer program</Link></li>
+              <li><a href="/installer-program" className="text-cyan-400 hover:text-cyan-300 transition-colors">Installer program</a></li>
             </ul>
           </div>
         </div>
@@ -67,7 +64,7 @@ export function Footer({footer, header, publicStoreDomain}) {
           <div className="text-2xl font-bold text-white mb-2">flashfog</div>
           <div className="text-orange-500 font-bold">25 YEARS</div>
           <div className="text-cyan-400 mt-2">
-            <Link to="/pages/about-us" className="hover:text-cyan-300 transition-colors">Contact us</Link>
+            <a href="/about-us" className="hover:text-cyan-300 transition-colors">Contact us</a>
           </div>
         </div>
 
@@ -96,13 +93,13 @@ export function Footer({footer, header, publicStoreDomain}) {
             <h4 className="text-white font-bold mb-4">FRIENDS TELL FRIENDS!</h4>
             <div className="flex gap-4">
               <a href="#" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                <span className="text-2xl">📘</span>
+                <Facebook size={24} />
               </a>
               <a href="#" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                <span className="text-2xl">🐦</span>
+                <Twitter size={24} />
               </a>
               <a href="#" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                <span className="text-2xl">💼</span>
+                <Linkedin size={24} />
               </a>
             </div>
           </div>
@@ -112,7 +109,7 @@ export function Footer({footer, header, publicStoreDomain}) {
           <p className="mb-2">
             By entering your email address, you grant FlashFog permission to send you
             messages about FlashFog. You may unsubscribe at any time. Your information is
-            protected by the <Link to="/pages/privacy-policy" className="text-cyan-400 hover:text-cyan-300">FlashFog Privacy Statement</Link>.
+            protected by the <a href="/privacy-policy" className="text-cyan-400 hover:text-cyan-300">FlashFog Privacy Statement</a>.
           </p>
           <p className="mb-2">
             Created by <span className="text-cyan-400">Arias Tech Ltd.</span> All rights reserved. ©2025
@@ -130,14 +127,6 @@ export function Footer({footer, header, publicStoreDomain}) {
       </div>
     </footer>
   );
-}
+};
 
-/**
- * @typedef {Object} FooterProps
- * @property {Promise<FooterQuery|null>} footer
- * @property {HeaderQuery} header
- * @property {string} publicStoreDomain
- */
-
-/** @typedef {import('storefrontapi.generated').FooterQuery} FooterQuery */
-/** @typedef {import('storefrontapi.generated').HeaderQuery} HeaderQuery */
+export default Footer;

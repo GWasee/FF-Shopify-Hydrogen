@@ -11,7 +11,10 @@ export function Header({header, isLoggedIn, cart, publicStoreDomain}) {
   return (
     <header className="header">
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <strong>{shop.name}</strong>
+        <div className="flex items-center space-x-2">
+          <div className="text-cyan-400 text-2xl">🛡️</div>
+          <strong className="text-2xl font-bold text-white">flashfog</strong>
+        </div>
       </NavLink>
       <HeaderMenu
         menu={menu}
@@ -175,36 +178,36 @@ const FALLBACK_HEADER_MENU = {
       id: 'gid://shopify/MenuItem/461609500728',
       resourceId: null,
       tags: [],
-      title: 'Collections',
+      title: 'FOG DETAILS',
       type: 'HTTP',
-      url: '/collections',
+      url: '/pages/fog-details',
       items: [],
     },
     {
       id: 'gid://shopify/MenuItem/461609533496',
       resourceId: null,
       tags: [],
-      title: 'Blog',
+      title: 'SECURITY STROBE',
       type: 'HTTP',
-      url: '/blogs/journal',
+      url: '/pages/security-strobe',
       items: [],
     },
     {
       id: 'gid://shopify/MenuItem/461609566264',
       resourceId: null,
       tags: [],
-      title: 'Policies',
+      title: 'SOUND BARRIER',
       type: 'HTTP',
-      url: '/policies',
+      url: '/pages/sound-barrier',
       items: [],
     },
     {
       id: 'gid://shopify/MenuItem/461609599032',
       resourceId: 'gid://shopify/Page/92591030328',
       tags: [],
-      title: 'About',
+      title: 'LIGHT BARRIER',
       type: 'PAGE',
-      url: '/pages/about',
+      url: '/pages/light-barrier',
       items: [],
     },
   ],
@@ -219,7 +222,7 @@ const FALLBACK_HEADER_MENU = {
 function activeLinkStyle({isActive, isPending}) {
   return {
     fontWeight: isActive ? 'bold' : undefined,
-    color: isPending ? 'grey' : 'black',
+    color: isPending ? 'grey' : 'white',
   };
 }
 
